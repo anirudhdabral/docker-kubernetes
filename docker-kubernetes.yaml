@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-kubernetes
+  labels:
+    app: docker-kubernetes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-kubernetes
+  template:
+    metadata:
+      labels:
+        app: docker-kubernetes
+    spec:
+      containers:
+      - name: docker-kubernetes
+        image: anirudhdabral/docker-kubernetes
+        ports:
+        - containerPort: 8081
